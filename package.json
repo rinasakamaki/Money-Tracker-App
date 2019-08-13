@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "knex": "^0.19.1",
+    "moment": "^2.24.0",
     "pg": "^7.12.1",
     "react": "^16.9.0",
     "react-datepicker": "^2.8.0",
@@ -17,7 +18,8 @@
     "eject": "react-scripts eject",
     "migrate": "knex migrate:latest --knexfile models/knexfile.js",
     "rollback": "knex migrate:rollback --knexfile models/knexfile.js",
-    "seed": "knex seed:run --knexfile models/knexfile.js"
+    "seed": "knex seed:run --knexfile models/knexfile.js",
+    "serve": "node index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
