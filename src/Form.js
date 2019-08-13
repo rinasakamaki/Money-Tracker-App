@@ -4,7 +4,10 @@ import Calendar from "./Calendar.jsx";
 export default class Form extends React.Component {
   state = {
     name: "",
-    cost: ""
+    cost: "",
+    year: "",
+    month: "",
+    day: ""
   };
 
   change = e => {
@@ -15,10 +18,13 @@ export default class Form extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmitParent(this.state);
     this.setState({
       name: "",
-      cost: ""
+      cost: "",
+      year: "",
+      month: "",
+      day: ""
     });
   };
 
@@ -39,7 +45,27 @@ export default class Form extends React.Component {
           onChange={e => this.change(e)}
         />
         <br />
-        <Calendar />
+        <input
+          name="year"
+          placeholder="year"
+          value={this.state.year}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="month"
+          placeholder="month"
+          value={this.state.month}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="day"
+          placeholder="day"
+          value={this.state.day}
+          onChange={e => this.change(e)}
+        />
+        <br />
         <button onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
     );
