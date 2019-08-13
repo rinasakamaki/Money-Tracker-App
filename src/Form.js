@@ -1,5 +1,5 @@
 import React from "react";
-import Calendar from "./Calendar.jsx";
+import axios from "axios";
 
 export default class Form extends React.Component {
   state = {
@@ -16,9 +16,18 @@ export default class Form extends React.Component {
     });
   };
 
+  getHistory = async () => {
+    const { data: history } = await axios.get("/api/history");
+    console.log("history:", history);
+    return history;
+  };
+
   onSubmit = e => {
     e.preventDefault();
     this.props.onSubmitParent(this.state);
+    const array = this.getHistory().then(array => {
+      console.log("array:", array);
+    });
     this.setState({
       name: "",
       cost: "",
