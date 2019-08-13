@@ -23,22 +23,33 @@ export default class Today extends React.Component {
   render() {
     return (
       <div>
-        {this.state.all.length === 0 ? (
-          <h5>loading...</h5>
-        ) : (
-          this.state.all.map(h => {
-            console.log("h.name:", h.name);
-            return (
-              <p>
-                {h.name + " "}
-                {h.cost + "yen "}
-                {h.year + "/"}
-                {h.month + "/"}
-                {h.day + " "}
-              </p>
-            );
-          })
-        )}
+        <table>
+          <tr>
+            <th>Product Name</th>
+            <th>Cost</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Day</th>
+          </tr>
+          {this.state.all.length === 0 ? (
+            <p />
+          ) : (
+            this.state.all.map(h => {
+              console.log("h.name:", h.name);
+              return (
+                <div>
+                  <tr>
+                    <td>{h.name + " "}</td>
+                    <td>{h.cost}</td>
+                    <td>{h.year}</td>
+                    <td>{h.month}</td>
+                    <td>{h.day}</td>
+                  </tr>
+                </div>
+              );
+            })
+          )}
+        </table>
         <button onClick={e => this.onSubmit(e)}>Refresh</button>
       </div>
     );

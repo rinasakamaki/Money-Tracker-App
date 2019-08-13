@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 export default class Form extends React.Component {
   state = {
@@ -18,6 +19,10 @@ export default class Form extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     this.props.onSubmitParent(this.state);
+    axios
+      .post("/api/history", this.state)
+      .then(response => console.log("response:", response))
+      .catch(error => console.log("error:", error));
     this.setState({
       name: "",
       cost: "",
