@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./Today.css";
+import "../css/Today.css";
 
 export default class Today extends React.Component {
   state = {

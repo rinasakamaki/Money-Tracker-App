@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
-import icon from "./favicon.ico";
+import "../css/App.css";
+import icon from "../favicon.ico";
 import Form from "./Form";
 import Today from "./Today";
+import Weekly from "./Weekly";
+import Monthly from "./Monthly";
+import Yearly from "./Yearly";
 
 class App extends Component {
   render() {
@@ -12,6 +15,9 @@ class App extends Component {
         <span id="AppTitle">Money Tracker App</span>
         <Form />
         <Today />
+        <Weekly />
+        <Monthly />
+        <Yearly />
       </div>
     );
   }

@@ -5,10 +5,13 @@
   "proxy": "http://localhost:4000",
   "dependencies": {
     "axios": "^0.19.0",
+    "chart": "^0.1.2",
+    "chart.js": "^2.8.0",
     "knex": "^0.19.1",
     "moment": "^2.24.0",
     "pg": "^7.12.1",
     "react": "^16.9.0",
+    "react-chartjs-2": "^2.7.6",
     "react-datepicker": "^2.8.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.0"
