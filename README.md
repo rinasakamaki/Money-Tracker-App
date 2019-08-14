@@ -1,7 +1,8 @@
 <div align="center" style="padding-top: 10px;">
-<img src="./img/react.png" alt="react logo" width="30%">
-<img src="./img/postgresql.png" alt="postgresql logo" width="30%">
-<img src="./img/knex.png" alt="knex logo" width="30%">
+<img src="./img/react.png" alt="react logo" width="20%">
+<img src="./img/postgresql.png" alt="postgresql logo" width="20%">
+<img src="./img/knex.png" alt="knex logo" width="20%">
+<img src="./img/chart.png" alt="chart logo" width="20%">
 </div>
 
 # Money-Tracker-App
