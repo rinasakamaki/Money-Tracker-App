@@ -26,7 +26,7 @@ export default class Weekly extends React.Component {
         <Bar
           data={data}
           width={100}
-          height={100}
+          height={50}
           options={{
             maintainAspectRatio: false
           }}

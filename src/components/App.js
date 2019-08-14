@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../css/App.css";
 import icon from "../favicon.ico";
 import Form from "./Form";
 import Today from "./Today";
@@ -13,7 +12,9 @@ class App extends Component {
       <div className="App">
         <img src={icon} alt="app icon" />
         <span id="AppTitle">Money Tracker App</span>
-        <Form />
+        <div id="formboxwrap">
+          <Form id="formbox" />
+        </div>
         <Today />
         <Weekly />
         <Monthly />

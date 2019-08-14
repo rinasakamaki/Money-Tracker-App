@@ -31,7 +31,6 @@ export default class Today extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={e => this.onAll(e)}>Refresh</button>
         <div className="tablewrap">
           <div className="tablebox">
             <table>
@@ -66,6 +65,9 @@ export default class Today extends React.Component {
                 <td />
               </tr>
             </table>
+            <button id="refresh" onClick={e => this.onAll(e)}>
+              Refresh
+            </button>
           </div>
         </div>
       </div>
