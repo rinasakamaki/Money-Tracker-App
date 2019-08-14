@@ -5,7 +5,7 @@ import "./Today.css";
 export default class Today extends React.Component {
   state = {
     all: [],
-    today: []
+    allTotal: 0
   };
 
   getHistory = async () => {
@@ -14,17 +14,24 @@ export default class Today extends React.Component {
     return history;
   };
 
-  onSubmit = e => {
+  onAll = e => {
+    let total = 0;
     e.preventDefault();
     this.getHistory().then(result => {
       this.setState({ all: result });
+    });
+    this.getHistory().then(result => {
+      result.forEach(r => {
+        total += JSON.parse(r.cost);
+      });
+      this.setState({ allTotal: total });
     });
   };
 
   render() {
     return (
       <div>
-        <button onClick={e => this.onSubmit(e)}>Refresh</button>
+        <button onClick={e => this.onAll(e)}>Refresh</button>
         <div className="tablewrap">
           <div className="tablebox">
             <table>
@@ -39,7 +46,7 @@ export default class Today extends React.Component {
                 <p />
               ) : (
                 this.state.all.map(h => {
-                  console.log("h.name:", h.name);
+                  this.setState.allTotal += h.cost;
                   return (
                     <tr>
                       <td>{h.name + " "}</td>
@@ -51,6 +58,13 @@ export default class Today extends React.Component {
                   );
                 })
               )}
+              <tr>
+                <td>Total</td>
+                <td> {this.state.allTotal}</td>
+                <td />
+                <td />
+                <td />
+              </tr>
             </table>
           </div>
         </div>
