@@ -10,7 +10,6 @@ export default class Today extends React.Component {
 
   getHistory = async () => {
     const { data: history } = await axios.get("/api/history");
-    console.log("history:", history);
     return history;
   };
 

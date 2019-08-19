@@ -13,12 +13,9 @@ module.exports = models => {
       .then(history => {
         const result = res.status(200).json(history);
         return result;
-        // I may have to come back and write a serialize function
       });
   };
   const listHistory = (req, res) => {
-    console.log("models.history:", models.history);
-    console.log("models.history.get:", models.history.get);
     models.history.list().then(history => res.status(200).json(history));
   };
   const patchHistory = (req, res) => {
