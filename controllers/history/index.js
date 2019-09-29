@@ -1,6 +1,9 @@
 const express = require("express");
 
 module.exports = models => {
+  const listHistory = (req, res) => {
+    models.history.list().then(history => res.status(200).json(history));
+  };
   const createHistory = (req, res) => {
     models.history
       .create({
@@ -14,9 +17,6 @@ module.exports = models => {
         const result = res.status(200).json(history);
         return result;
       });
-  };
-  const listHistory = (req, res) => {
-    models.history.list().then(history => res.status(200).json(history));
   };
   const patchHistory = (req, res) => {
     return models.history
