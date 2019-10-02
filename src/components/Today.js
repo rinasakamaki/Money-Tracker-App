@@ -14,18 +14,17 @@ export default class Today extends React.Component {
   };
 
   onAll = e => {
-    let total = 0;
     e.preventDefault();
     this.getHistory().then(result => {
       this.setState({ all: result });
     });
-    this.getHistory().then(result => {
-      result.forEach(r => {
-        total += JSON.parse(r.cost);
-      });
-      this.setState({ allTotal: total });
-    });
   };
+
+  componentDidMount() {
+    this.getHistory().then(result => {
+      this.setState({ all: result });
+    });
+  }
 
   render() {
     return (
