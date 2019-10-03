@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import "../css/Today.css";
 
 export default class Today extends React.Component {
@@ -8,20 +7,15 @@ export default class Today extends React.Component {
     allTotal: 0
   };
 
-  getHistory = async () => {
-    const { data: history } = await axios.get("/api/history");
-    return history;
-  };
-
   onAll = e => {
     e.preventDefault();
-    this.getHistory().then(result => {
+    this.props.getHistory().then(result => {
       this.setState({ all: result });
     });
   };
 
   componentDidMount() {
-    this.getHistory().then(result => {
+    this.props.getHistory().then(result => {
       this.setState({ all: result });
     });
   }

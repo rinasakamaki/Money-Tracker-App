@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import icon from "../favicon.ico";
 import Form from "./Form";
 import Today from "./Today";
@@ -7,6 +8,11 @@ import Monthly from "./Monthly";
 import Yearly from "./Yearly";
 
 class App extends Component {
+  getHistory = async () => {
+    const { data: history } = await axios.get("/api/history");
+    return history;
+  };
+
   render() {
     return (
       <div className="App">
@@ -15,7 +21,7 @@ class App extends Component {
         <div id="formboxwrap">
           <Form id="formbox" />
         </div>
-        <Today />
+        <Today getHistory={this.getHistory} />
         <Weekly />
         <Monthly />
         <Yearly />
