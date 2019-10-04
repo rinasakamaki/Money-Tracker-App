@@ -19,10 +19,7 @@ export default class Form extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    axios
-      .post("/api/history", this.state)
-      .then(response => console.log("response:", response))
-      .catch(error => console.log("error:", error));
+    axios.post("/api/history", this.state);
     this.setState({
       name: "",
       cost: "",
