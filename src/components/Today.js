@@ -26,36 +26,38 @@ export default class Today extends React.Component {
         <div className="tablewrap">
           <div className="tablebox">
             <table>
-              <tr>
-                <th>Product Name</th>
-                <th>Cost</th>
-                <th>Year</th>
-                <th>Month</th>
-                <th>Day</th>
-              </tr>
-              {this.state.all.length === 0 ? (
-                <p />
-              ) : (
-                this.state.all.map(h => {
-                  this.setState.allTotal += h.cost;
-                  return (
-                    <tr>
-                      <td>{h.name + " "}</td>
-                      <td>{h.cost}</td>
-                      <td>{h.year}</td>
-                      <td>{h.month}</td>
-                      <td>{h.day}</td>
-                    </tr>
-                  );
-                })
-              )}
-              <tr>
-                <td>Total</td>
-                <td> {this.state.allTotal}</td>
-                <td />
-                <td />
-                <td />
-              </tr>
+              <tbody>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Cost</th>
+                  <th>Year</th>
+                  <th>Month</th>
+                  <th>Day</th>
+                </tr>
+                {this.state.all.length === 0 ? (
+                  <tr />
+                ) : (
+                  this.state.all.map((h, i) => {
+                    this.setState.allTotal += h.cost;
+                    return (
+                      <tr key={i}>
+                        <td>{h.name + " "}</td>
+                        <td>{h.cost}</td>
+                        <td>{h.year}</td>
+                        <td>{h.month}</td>
+                        <td>{h.day}</td>
+                      </tr>
+                    );
+                  })
+                )}
+                <tr>
+                  <td>Total</td>
+                  <td> {this.state.allTotal}</td>
+                  <td />
+                  <td />
+                  <td />
+                </tr>
+              </tbody>
             </table>
             <button id="refresh" onClick={e => this.onAll(e)}>
               Refresh
